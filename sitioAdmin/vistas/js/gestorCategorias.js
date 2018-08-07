@@ -90,3 +90,65 @@ $(".validarCategoria").change(function(){
 
 	  })
 });
+
+/*=============================================
+RUTA CATEGORÍA
+=============================================*/
+
+function limpiarUrl(texto){
+
+	var texto = texto.toLowerCase();
+	texto = texto.replace(/[á]/, 'a');
+	texto = texto.replace(/[é]/, 'e');
+	texto = texto.replace(/[í]/, 'i');
+	texto = texto.replace(/[ó]/, 'o');
+	texto = texto.replace(/[ú]/, 'u');
+	texto = texto.replace(/[ñ]/, 'n');
+	texto = texto.replace(/ /g, '-');
+	return texto;
+
+}
+
+
+$(".tituloCategoria").change(function(){
+
+	$(".rutaCategoria").val(
+
+		limpiarUrl($(".tituloCategoria").val())
+        
+	);
+
+});
+
+
+/*=========================================
+			EDITAR CATEGORIA
+==========================================*/
+
+$(".tablaCategorias tbody").on("click",".btnEditarCategoria",function(){
+	var idCategoria=$(this).attr("idCategoria");
+
+	var datos = new FormData();
+	datos.append("idCategoria",idCategoria);
+
+	$.ajax({
+		url:"ajax/categorias.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+	    	console.log(respuesta);
+	    	$("#modalEditarCategoria .idCategoria").val(respuesta["id_categoria"]);
+	    	$("#modalEditarCategoria .estadoCategoria").val(respuesta["estado_categoria"]);
+	    	$("#modalEditarCategoria .tituloCategoria").val(respuesta["nombre_categoria"]);
+	    	$("#modalEditarCategoria .previsualizarFoto").attr("src",respuesta["imagen_categoria"]);
+	    	$("#modalEditarCategoria .antiguaFoto").val(respuesta["imagen_categoria"]);
+	    	
+	    }
+	})
+
+})
+

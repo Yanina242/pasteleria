@@ -7,11 +7,18 @@ USUARIOS
 
 	<!-- dropdown-toggle -->
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+	   <?php
+
+	        $item="id";
+            $valor=$_SESSION["id"];
+
+            $usuario = ControladorAdministradores::ctrMostrarAdministradores($item,$valor);
 	
-		<img src="vistas/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+		echo '<img src="'.$usuario["foto"].'" class="user-image" alt="User Image">'?>
 		
-		<span class="hidden-xs">Admin</span>
-	
+		<span class="hidden-xs"><?php echo $usuario["nombre"]; ?></span>
+	    
 	</a>
 	<!-- dropdown-toggle -->
 
@@ -19,22 +26,23 @@ USUARIOS
 	<ul class="dropdown-menu">
 
 		<li class="user-header">
-		
-			<img src="vistas/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+		   <?php
+			echo '<img src="'.$usuario["foto"].'" class="img-circle" alt="User Image">'
+           ?>
 			<p>
-			Admin
+			<?php echo $usuario["nombre"]; ?>
 			</p>
+
 		
 		</li>
 
 		<li class="user-footer">
 		
-			<!--<div class="pull-left">
+			<div class="pull-left">
 				
-				<a href="perfil" class="btn btn-default btn-flat">Perfil</a>
+				<a href="index.php?ruta=perfil" class="btn btn-default btn-flat">Perfil</a>
 			
-			</div>-->
+			</div>
 			
 			<div class="pull-right">
 			

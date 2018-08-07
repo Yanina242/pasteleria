@@ -90,3 +90,36 @@ REDES SOCIALES
 	color:black;
 }
 
+.skin-blue .wrapper{
+    background-color:#1e0210 !important;
+}
+
+
+.skin-blue .main-header .navbar {
+    background-color: #e66b88 !important;
+}
+
+
+.skin-blue .main-header .logo {
+    background-color: #650b2a !important;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+
+.btn-primary {
+    background-color: #aa1248e6 !important;
+    border-color: #92325e !important;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #1e0210 !important;
+}
+
+.skin-blue .main-header li.user-header {
+    background-color: #d05b86 !important;
+}
+
+.dropdown-menu {
+    box-shadow: none;
+    border-color: #bd5c5c !important;
+}

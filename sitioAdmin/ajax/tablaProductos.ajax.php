@@ -44,6 +44,8 @@ class TablaProductos{
 		 	$estado = "<button class='btn ".$colorEstado." btn-xs btnActivar' estadoProducto='".$estadoProducto."' idProducto='".$productos[$i]["id"]."'>".$textoEstado."</button>";
 
 		 	$imagen="<img src='".$productos[$i]["imagen"]."' width='50' heihth='50' >";
+
+		 	$acciones="<button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]['id']."' data-toggle='modal' data-target='#modalEditarProducto'><Span class = 'glyphicon glyphicon-pencil'> </ span></button>";
 				    
 			$datosJson	 .= '[
 				      "'.($i+1).'",
@@ -52,8 +54,9 @@ class TablaProductos{
 				      "$'.$productos[$i]["precio"].'",
 				      "'.$productos[$i]["stock"].'",
 				      "'.$imagen.'",
-				      "'. $estado.'",
-				      "'.$productos[$i]["fecha"].'"    
+				      "'.$estado.'",
+				      "'.$productos[$i]["fecha"].'" ,
+				      "'.$acciones.'"
 				    ],';
 
 	}

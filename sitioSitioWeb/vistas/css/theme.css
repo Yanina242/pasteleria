@@ -19,17 +19,134 @@ h1,h2,h3,h4,h5,h6 {
 
 h3{
  color:#ff005a !important;
-font-family: 'Playball',cursive;
+ font-family: 'Playball',cursive;
 }
 .w960 {
 	max-width:960px;
 	margin:0px auto;
 }
 a,a:hover {
-	color:#cc580c;
+	color:white;
 	text-decoration: none;
 }
 img {max-width: 100%;}
+
+/*---------------------------------------------------- 	Menu Login------------------------------------------------------*/
+
+/*=============================================
+TOP
+=============================================*/
+
+#top ul{
+	padding-top:8px;
+}
+
+#top ul li{
+	display:inline;
+	line-height:30px;
+	margin:0px 5px;
+	color:white;
+}
+
+.registro ul{
+	text-align: right;
+	font-size:12px;
+}
+
+.barraSuperior{
+	background:black;
+}
+
+.barraSuperior a{
+	color:white;
+}
+.backColor, .backColor a{
+	background:#f03e7d;
+	color:white !important;
+}
+
+
+/*=============================================
+VENTANAS MODALES
+=============================================*/
+
+.modalTitulo{
+	padding:5px 0px;
+}
+
+.modalTitulo h3{
+	text-align:center;
+	margin-top:-5px;
+	padding:15px 0px;
+	border-radius:5px 5px 0px 0px;
+
+}
+/* ubicar la posicion del cerrar*/
+.modalFormulario .close{
+	position:absolute;
+	right:27px;
+	top:15px;
+	color:white;
+}
+
+.modalFormulario .facebook, .modalFormulario .google{
+	cursor:pointer;/*la manito*/
+}
+
+.modalFormulario .facebook p{
+	background:#46639f;
+}
+
+.modalFormulario .google p{
+	background:#d6513e;
+}
+
+.modalFormulario .facebook p, .modalFormulario .google p{
+	color:white;
+	text-align:center;
+	line-height:40px;
+	padding:8px;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+.modalFormulario p i{
+	margin-left:-25px;
+	margin-right:25px;
+	font-size:25px;	
+}
+
+.modalFormulario form{
+	padding:20px;
+}
+
+.modalFormulario form hr{
+	border:1px solid #eee;
+}
+
+.modalFormulario form input[type="text"], .modalFormulario form input[type="email"], .modalFormulario form input[type="password"]{
+	padding:25px;
+}
+.modalFormulario form input[type="submit"]{
+	padding:15px;
+}
+
+.modalFormulario form .checkBox{
+	margin-top:10px;
+}
+.modal-footer  strong a{
+	color:#ff005a !important;
+}
+/*=============================================
+MOVIL (XS revisamos en 320px)
+=============================================*/
+
+@media (max-width:767px){
+.modalFormulario .google p{
+		margin-top:-15px;
+	}
+	
+}
 /*---------------------------------------------------- 	Menu------------------------------------------------------*/
 .isFixed {
 	left:0px;
@@ -44,6 +161,7 @@ img {max-width: 100%;}
 	 right:0px;
 	 bottom:0;
 }
+
 
 .navArea {
 	/*float:right;*/
@@ -117,11 +235,11 @@ img {max-width: 100%;}
 	display:none;
 }
 .isFixed .navbar-inverse .navbar-nav>.active>a,.isFixed .navbar-inverse .navbar-nav>.active>a:focus {
-	background:#cc580c;
+	background:black;
 	color:#fff;
 }
 .isFixed .navbar.navbar-inverse.navbar-static-top a:hover {
-	background:#cc580c;
+	background:black;
 	color:#fff;
 }
 .isFixed .navbar.navbar-inverse.navbar-static-top a {
@@ -136,7 +254,7 @@ img {max-width: 100%;}
 		background:#ff005a;
 }
 .isFixed {
-	background:#333;
+	background:#ff005a;
 		-o-transition:all .5s;
 	-ms-transition:all .5s;
 	-moz-transition:all .5s;
@@ -147,7 +265,7 @@ img {max-width: 100%;}
 	display: block !important;
 }
 @media (max-width: 655px) {
-	.collapse {background: #333;}
+	.collapse {background: #ff005a;}
 	.navbar.navbar-inverse.navbar-static-top a {padding: 15px 16px;line-height: 15px;font-size: 13px;}
 }
 /*---------------------------------------------------- 	Intro------------------------------------------------------*/
@@ -161,6 +279,8 @@ header {
 	font-weight: 900;
 	color:#150f0f;
 }
+
+
 /*---------------------------------------------------- 	Parallax------------------------------------------------------*/
 .parallax {
 	text-align:center;
@@ -197,12 +317,18 @@ header {
 	font-size:16px;
 	line-height:1.7;
 }
+
 img#site-title {
 	max-width: 200px;
 	min-width: 40px
 }
 
 
+@media screen and (max-width:600px) {
+	.heading .dividerline {
+			width: 80%;
+		}
+}
 /*---------------------------------------------------- 	Team------------------------------------------------------*/
 .papers,.papers:before,.papers:after {
 	background-color:#fff;
@@ -251,7 +377,7 @@ img#site-title {
 	max-width:100%;
 	margin-bottom: 5px;
 }
-/*---------------------------------------------------- 	Restaurant Menu------------------------------------------------------*/
+/*---------------------------------------------------- 	Pasteleria Menu------------------------------------------------------*/
 .restmenuwrap {
 	box-shadow:inset 0 0 0 16px #fff,inset 0 0 0 17px #eee,inset 0 0 0 18px #fff,inset 0 0 0 19px #eee,inset 0 0 0 20px #fff,inset 0 0 0 21px #eee,0 4px 20px rgba(0,0,0,0.1);
 	-webkit-transform:translateZ(0px);
@@ -936,7 +1062,7 @@ form.form_contact input[type="submit"]:hover{
 
 @media screen and (max-width:600px) {
 .form_wrap{
-    width: 100%;
+    width: 75%;
     height:auto;
     margin: 50px auto;
     display: block;

@@ -43,11 +43,16 @@ class TablaCategorias{
 
 		 	$estado = "<button class='btn ".$colorEstado." btn-xs btnActivar' estadoCategoria='".$estadoCategoria."' idCategoria='".$categorias[$i]["id_categoria"]."'>".$textoEstado."</button>";
 
-				    
+		 	$imagen="<img src='".$categorias[$i]["imagen_categoria"]."' width='50' heihth='50' >";
+
+		 	$acciones="<button class='btn btn-warning btnEditarCategoria' idCategoria='".$categorias[$i]['id_categoria']."' data-toggle='modal' data-target='#modalEditarCategoria'><Span class = 'glyphicon glyphicon-pencil'> </ span></button>";
+
 			$datosJson	 .= '[
 				      "'.($i+1).'",
 				      "'.$categorias[$i]["nombre_categoria"].'",
-				      "'. $estado.'"	    
+				      "'.$imagen.'",
+				      "'. $estado.'",
+				      "'.$acciones.'"    
 				    ],';
 
 	}

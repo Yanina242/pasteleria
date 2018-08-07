@@ -144,7 +144,6 @@ session_start();
 <body class="hold-transition skin-blue sidebar-mini login-page">
 
 <?php
-echo $_GET["ruta"];
  if(isset($_SESSION["validarSesionBackend"]) && $_SESSION["validarSesionBackend"] === "ok"){
     echo '<div class="wrapper">';
     /*=============================================
@@ -164,10 +163,12 @@ echo $_GET["ruta"];
            $_GET["ruta"]== "categorias" ||
            $_GET["ruta"]== "productos" ||
            $_GET["ruta"]== "contactos" ||
+           $_GET["ruta"]== "usuarios" ||
            $_GET["ruta"]== "perfil" ||
            $_GET["ruta"]== "salir"){
           include "modulos/".$_GET["ruta"].".php";
         }
+
      }
      /*=============================================
      FOOTER
@@ -187,6 +188,7 @@ JS PERSONALIZADO
 <script src="vistas/js/gestorDescripcion.js"></script>
 <script src="vistas/js/gestorCategorias.js"></script>
 <script src="vistas/js/gestorProductos.js"></script>
+<script src="vistas/js/gestorAdministradores.js"></script>
 
 </body>
 </html>

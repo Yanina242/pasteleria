@@ -39,7 +39,9 @@
               
               <th style="width:10px">#</th>
               <th>Categoría</th>
+              <th>Foto</th>
               <th>Estado</th>
+              <th>Acción</th>
             </tr>
 
           </thead>
@@ -52,83 +54,7 @@
     </div>
   </section>
   </div>
-
-  <!--=====================================
-MODAL AGREGAR CATEGORIA
-======================================-->
-
-<div id="modalAgregarCategoria" class="modal fade" role="dialog">
-  
-  <div class="modal-dialog">
-    
-    <div class="modal-content">
-
-      <form method="post" enctype="multipart/form-data">
-
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-
-        
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-          
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-          <h4 class="modal-title">Agregar categoría</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
-        <div class="modal-body">
-          
-          <div class="box-body">
-             
-
-           <!--=====================================
-            ENTRADA DEL TITULO DE LA CATEGORÍA
-            ======================================-->
-
-            <div class="form-group">
-              
-              <div class="input-group">
-                
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <input type="text" class="form-control input-lg validarCategoria tituloCategoria" placeholder="Ingresar Categoria" name="tituloCategoria" required> 
-
-              </div> 
-
-            </div>
-
-          </div>
-        </div>
-
-       <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-      
-
-       
-        <div class="modal-footer">
-          
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
-
-        </div>
-
-      </form>
-            <?php
-
-        
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
-
-           ?>
-
-          </div>
-      </div>
-</div>
+<?php
+require "categoriasModales/crearCategoria.modal.php";
+require "categoriasModales/editarCategoria.modal.php";
+?> 

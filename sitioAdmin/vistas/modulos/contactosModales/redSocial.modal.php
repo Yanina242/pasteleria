@@ -57,7 +57,7 @@ MODAL CAMBIAR RED SOCIAL
 
                 <div class="form-group">
 
-                  <h2>Teléfono:</h2>
+                  <h2>Estado:</h2>
                   
                   <div class="input-group">
                     

@@ -11,6 +11,12 @@
 <meta charset="UTF-8"/>
 
 <title>Pasteleria Doña Lupe</title>
+<?php
+
+		session_start();
+		$url = Ruta::ctrRuta();
+
+?>
 
 <meta name="description" content="Pasteleria">
 
@@ -18,11 +24,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="shortcut icon" href="vistas/img/logoIco.ico" />
 <link rel="stylesheet" type="text/css" media="screen" href="vistas/css/bootstrap.css">
 <link rel="stylesheet" href="vistas/css/font-awesome.css">
 <link rel="stylesheet" href="vistas/css/animate.css">
 <link rel="stylesheet" href="vistas/css/theme.css">
-
+<link rel="stylesheet" href="vistas/css/plugins/sweetalert.css">
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
@@ -31,43 +38,16 @@
 <body style="background-image: url(vistas/img/f5.jpg); background-repeat:repeat; background-size: 100% auto" >
 <!--wrapper start-->
 <div class="wrapper" id="wrapper">
+
 	
 	<!--header-->
-	<header>
-	<div class="banner row" id="banner">		
-		<div class="parallax text-center" style="background-image: url(vistas/img/fondo19.jpg);">
-			<div class="parallax-pattern-overlay">
-				<div class="container text-center" style="height:580px;padding-top:10%;">
-					<a href="#"><img id="site-title" class=" wow fadeInDown" wow-data-delay="0.0s" wow-data-duration="0.9s" src="vistas/img/logo2.png" alt="logo"/></a>
-					<h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">Bienvenidos</h2>
-				</div>
-			</div>
-		</div>
-	</div>	
-	<div class="menu">
-		<div class="navbar-wrapper">
-			<div class="container">
-				<div class="navwrapper">
-					<div class="navbar navbar-inverse navbar-static-top">
-						<div class="container">
-							<div class="navArea">
-								<div class="navbar-collapse collapse">
-									<ul class="nav navbar-nav">
-										<li class="menuItem active"><a href="#wrapper">Home</a></li>
-										<li class="menuItem"><a href="#aboutus">Sobre Nosotros</a></li>
-										<li class="menuItem"><a href="#contact">Contactanos</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>	
-	</header>
+	<?php
+    
+          include "modulos/cabezera.php";
+
+	?>
 		
-	<!--about us-->
+	<!--sobreNosotros-->
 	<?php
     
           include "modulos/sobreNosotros.php";
@@ -81,17 +61,47 @@
 
 	?>
 
+<?php
+/*=============================================
+CONTENIDO DINÁMICO
+=============================================*/
+
+$rutas = array();
+$ruta = null;
+$infoProducto = null;
+
+if(isset($_GET["ruta"])){
+
+	$rutas = explode("/", $_GET["ruta"]);
+
+	$item = "ruta";
+	$valor =  $rutas[0];
+
+	if( $rutas[0] == "salir" ){
+
+		include "modulos/".$rutas[0].".php";
+
+	}else{
+
+		include "modulos/error404.php";
+
+	}
+
+}else{
+
+	include "modulos/slide.php";
+
+	include "modulos/destacados.php";
+
+}
+
+?>
+
 	<!--footer-->
 	<section class="footer" id="footer">
-	<p class="text-center">
-		<a href="#wrapper" class="gototop"><i class="fa fa-angle-double-up fa-2x"></i></a>
-	</p>
-	<div class="container">
-		<p>
-			&copy; 2015 Copyright Your Website<br>
-			 Theme by <a href="http://www.wowthemes.net">WowThemes.Net</a>
-		</p>
-	</div>
+		<div class="container">
+			<p> SofwareGym</p>
+		</div>
 	</section>
 	
 </div><!--wrapper end-->
@@ -112,6 +122,15 @@
 <script src="vistas/js/gridscroll.js"></script>
 <script src="vistas/js/contact.js"></script>
 <script src="vistas/js/common.js"></script>
+<script src="vistas/js/usuarios.js"></script>
+<script src="ajax/usuarios.ajax.php"></script>
+<script src="vistas/js/registroFacebook.js"></script>
+<script src="vistas/js/plugins/sweetalert.min.js"></script>
+<script src="vistas/js/plugins/jquery.easing.js"></script>
+<script src="vistas/js/plugins/jquery.scrollUp.js"></script>
+<script src="vistas/js/plugins/jquery.flexslider.js"></script>
+
+
 
 <script type="text/javascript">
 jQuery(function($) {
@@ -121,10 +140,7 @@ $(document).ready( function() {
 		parts: {
 		  0: 'banner',
 		  1: 'aboutus',
-		  2: 'specialties',
-		  3: 'gallery',
-		  4: 'feedback',
-		  5: 'contact'
+		  2: 'contact'
 		},
 		itemClass: 'menuItem',
 		itemHover: 'active',
@@ -132,6 +148,28 @@ $(document).ready( function() {
 		});
 	});
 });
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '660791084288623',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 </script>
 </body>
 </html>

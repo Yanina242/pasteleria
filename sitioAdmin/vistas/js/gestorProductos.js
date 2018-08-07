@@ -115,4 +115,37 @@ $(".tablaProductos").DataTable({
 
 
 });
+/*=========================================
+			EDITAR PRODUCTO
+==========================================*/
 
+$(".tablaProductos tbody").on("click",".btnEditarProducto",function(){
+	var idProducto=$(this).attr("idProducto");
+
+	var datos = new FormData();
+	datos.append("idProducto",idProducto);
+
+	$.ajax({
+		url:"ajax/productos.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+
+	    	$("#modalEditarProducto .idProducto").val(respuesta["id"]);
+	    	$("#modalEditarProducto .estadoProducto").val(respuesta["estado"]);
+	    	$("#modalEditarProducto .tituloProducto").val(respuesta["nombre"]);
+	    	$("#modalEditarProducto .seleccionarCategoria").val(respuesta["id_categoria"]);
+	    	$("#modalEditarProducto .descripcionProducto").val(respuesta["descripcion"]);
+	    	$("#modalEditarProducto .precio").val(respuesta["precio"]);
+	    	$("#modalEditarProducto .stock").val(respuesta["stock"]);
+	    	$("#modalEditarProducto .previsualizarFoto").attr("src",respuesta["imagen"]);
+	    	$("#modalEditarProducto .antiguaFoto").val(respuesta["imagen"]);
+	    	
+	    }
+	})
+
+})

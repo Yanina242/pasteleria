@@ -21,14 +21,12 @@
 								<h5> '.$info["descripcion"].'</h5>
 								<p>Ultima modificación: '.date('d/m/Y',strtotime($info["fecha"])).'</p>
 			    			 </div>';    
-
-      				?>
+					?>
 						
 					</div>	
 				</div>
 			</div>
-		</div>
-			
+		</div>	
 	</div>
 </section>
 
