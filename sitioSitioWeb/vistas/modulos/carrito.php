@@ -43,7 +43,7 @@ TABLA CARRITO DE COMPRAS
 
 			<div class="panel-heading cabeceraCarrito">
 				
-				<div class="col-md-6 col-sm-7 col-xs-12 text-center">
+				<div class="col-md-5 col-sm-6 col-xs-10 text-center">
 					
 					<h3>
 						<small>PRODUCTO</small>
@@ -59,7 +59,7 @@ TABLA CARRITO DE COMPRAS
 
 				</div>
 
-				<div class="col-sm-2 col-xs-0 text-center">
+				<div class="col-sm-1 col-xs-0 text-center">
 					
 					<h3>
 						<small>CANTIDAD</small>
@@ -71,6 +71,14 @@ TABLA CARRITO DE COMPRAS
 					
 					<h3>
 						<small>SUBTOTAL</small>
+					</h3>
+
+				</div>
+
+				<div class="col-sm-2 col-xs-0 text-center">
+					
+					<h3>
+						<small>ENTREGA</small>
 					</h3>
 
 				</div>
@@ -134,7 +142,7 @@ TABLA CARRITO DE COMPRAS
 
 				}else{
 
-					echo '<a href="#modalIngreso" data-toggle="modal"><button class="btn btn-default backColor btn-lg pull-right">REALIZAR RESERVA</button></a>';
+					echo '<a href="#" data-target="#modalIngreso" data-toggle="modal"><button class="btn btn-default backColor btn-lg pull-right">REALIZAR RESERVA</button></a>';
 				}
 
 			?>	
@@ -187,15 +195,15 @@ VENTANA MODAL PARA CHECKOUT
 
 					</table>
 
-					<div class="col-sm-6 col-xs-12 pull-right">
+										<div class="col-sm-6 col-xs-12 pull-right">
 						
 						<table class="table table-striped tablaTasas">
 							
 							<tbody>
-
+								
 								<tr>
-									<td><strong>Total</strong></td>	
-									<td><strong><span class="cambioDivisa">USD</span> $<span class="valorTotalCompra" valor="0">0</span></strong></td>	
+									<td>TOTAL</td>	
+									<td>$<span class="valorTotal" valor="0">0</span></td>	
 								</tr>
 
 							</tbody>	
@@ -205,28 +213,6 @@ VENTANA MODAL PARA CHECKOUT
 					</div>
 
 					<div class="clearfix"></div>
-
-					<form class="formPayu" style="display:none">
-					 
-						<input name="merchantId" type="hidden" value=""/>
-						<input name="accountId" type="hidden" value=""/>
-						<input name="description" type="hidden" value=""/>
-						<input name="referenceCode" type="hidden" value=""/>	
-						<input name="amount" type="hidden" value=""/>
-						<input name="tax" type="hidden" value=""/>
-						<input name="taxReturnBase" type="hidden" value=""/>
-						<input name="shipmentValue" type="hidden" value=""/>
-						<input name="currency" type="hidden" value=""/>
-						<input name="lng" type="hidden" value="es"/>
-						<input name="confirmationUrl" type="hidden" value="" />
-						<input name="responseUrl" type="hidden" value=""/>
-						<input name="declinedResponseUrl" type="hidden" value=""/>
-						<input name="displayShippingInformation" type="hidden" value=""/>
-						<input name="test" type="hidden" value="" />
-						<input name="signature" type="hidden" value=""/>
-
-					  <input name="Submit" class="btn btn-block btn-lg btn-default backColor" type="submit"  value="PAGAR" >
-					</form>
 					
 					<button class="btn btn-block btn-lg btn-default backColor btnPagar">CONFIRMAR PEDIDO</button>
 

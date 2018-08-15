@@ -25,6 +25,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $url; ?>vistas/css/bootstrap.css">
 <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/font-awesome.css">
 <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/animate.css">
+<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/carrito.css">
 <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/theme.css">
 <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/sweetalert.css">
 <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plantilla.css">
@@ -83,7 +84,8 @@ if(isset($_GET["ruta"])){
 </div><!--wrapper end-->
 
 <!--Javascripts-->
-<input type="hidden" value="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?ruta='; ?>" id="rutaOculta">
+<input type="hidden" value="<?php echo Ruta::ctrRutaServidor(); ?>" id="urlOculta">
+<input type="hidden" value="<?php echo $url.'index.php?ruta='; ?>" id="rutaOculta">
 
 <script src="<?php echo $url; ?>vistas/js/jquery.js"></script>
 <script src="<?php echo $url; ?>vistas/js/modernizr.js"></script>

@@ -15,7 +15,7 @@ MODAL AGREGAR PRODUCTO
         ======================================-->
 
         
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+        <div class="modal-header" style="background:#FF3255; color:white">
           
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
@@ -119,23 +119,7 @@ MODAL AGREGAR PRODUCTO
 
               </div>
 
-              <!-- STOCK -->
-
-           <!--   <div class="col-md-6 col-xs-12">
-  
-                <div class="panel">STOCK</div>
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
-
-                  <input type="number" class="form-control input-lg peso" min="0" name="stock" required>
-
-                </div>
-
-              </div>
-
-            </div> -->
+            </div> 
 
 
             <!--=====================================

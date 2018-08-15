@@ -20,7 +20,25 @@ if(isset($_SESSION["validarSesion"])){
 				<div class="row">
 					<div class="registro">
 						<ul>
-							<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="carrito">
+							<div class="col-lg-1 col-md-2 col-sm-2 col-xs-8" id="carrito">
+				
+							<a href="<?php echo $url;?>">
+								<button class="btn btn-default pull-left backColor"> 
+									<i class="fa fa-home" aria-hidden="true"></i>
+								</button>
+							</a>	
+							</div>
+						
+							<div class="col-lg-1 col-md-2 col-sm-2 col-xs-8" id="carrito">
+				
+							<a href="<?php echo $url;?>catalogo">
+								<button class="btn btn-default pull-left backColor"> 
+									<i class="fa fa-list" aria-hidden="true"></i>
+								</button>
+							</a>	
+							</div>
+						
+							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-8" id="carrito">
 				
 							<a href="<?php echo $url;?>carrito">
 								<button class="btn btn-default pull-left backColor"> 

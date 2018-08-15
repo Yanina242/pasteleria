@@ -51,6 +51,8 @@
 		<div class="row">
 
 		   <?php
+
+		   		if (isset($_GET["url"])){
                    
                    if($_GET["url"]=="catalogo"){
 
@@ -66,10 +68,50 @@
                          
 
                      }
-				     
-                   if($_GET["url"]!="infoproducto"){
 
-		             if (!$productos){
+                 }else{
+                 		 $item= null;
+                         $valor=null;
+                         $productos = ControladorProductos::ctrMostrarProductosCategorias($item,$valor);
+                 }
+				 
+			if (isset($_GET["url"])){    //miro que exista la ruta para poder mostrar
+				 
+	            if($_GET["url"]=="infoproducto"){
+
+						echo '<div class="col-md-12">
+							<div class="papers text-center">
+								<div class="row">';
+								
+					$item =  "id";
+					$valor = $_GET["id"];
+					$infoproducto = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
+
+	        				
+	        				echo '<div class="col-md-7">
+									<img src="../sitioAdmin/'.$infoproducto["imagen"].'" width="100%"><br/>
+								</div>';
+
+
+	       					 echo '<div  class="col-md-5">
+									<h3 class="notopmarg nobotmarg">'.$infoproducto["nombre"].'</h3>
+									<hr>
+									<h4 class="notopmarg nobotmarg">$'.$infoproducto["precio"].'</h4>
+									<p> '.$infoproducto["descripcion"].'</p>
+									
+				    			 	</div>  
+				    			 	<button class="agregarCarrito" idProducto="'.$infoproducto["id"].'" imagen="'.$infoproducto["imagen"].'" precio="'.$infoproducto["precio"].'" nombre="'.$infoproducto["nombre"].'" title="Agregar al carrito"><i class="fa fa-shopping-cart"></i></button> 
+								</div>	
+							</div>
+						</div>';
+					}else{
+							//pegar todo el else una ves solucionado los estilos
+            		}
+					
+			}else{
+					//desde aqui
+				     if (!$productos){
+
 		                           echo '<div class="col-xs-12 error404 text-center">
 
 								           <h1><small>¡Oops!</small></h1>
@@ -109,45 +151,14 @@
 								
                                 </article>
                               </li>';
-                                              
+            
 
-				                              
-
-									}
-								}
-								echo '</ul>';
 							}
-						}else{
+						}
+						echo '</ul>';
+					}//hasta aqui
+			}
 
-					echo '
-
-			<div class="col-md-12">
-				<div class="papers text-center">
-					<div class="row">';
-					
-					    $item =  "id";
-				$valor = $_GET["id"];
-				$infoproducto = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
-
-        				
-        				echo '<div class="col-md-7">
-								<img src="../sitioAdmin/'.$infoproducto["imagen"].'" width="100%"><br/>
-							</div>';
-
-
-       					 echo '<div  class="col-md-5">
-								<h3 class="notopmarg nobotmarg">'.$infoproducto["nombre"].'</h3>
-								<hr>
-								<h4 class="notopmarg nobotmarg">$'.$infoproducto["precio"].'</h4>
-								<p> '.$infoproducto["descripcion"].'</p>
-								
-			    			 </div>   
-					
-						
-					</div>	
-				</div>
-			</div>';}
-					
 			?>
 					
 			
@@ -156,7 +167,7 @@
 
 	</section>
 	
-<!--</div><!--wrapper end-->
+<!--</div><wrapper end-->
 
 <!--Javascripts-->
 <script src="vistas/js/jquery.js"></script>
